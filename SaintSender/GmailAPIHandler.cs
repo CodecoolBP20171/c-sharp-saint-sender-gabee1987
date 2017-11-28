@@ -110,7 +110,7 @@ namespace SaintSender
         /// <param name="userId">User's email address. The special value "me"
         /// can be used to indicate the authenticated user.</param>
         /// <param name="messageId">ID of Message to retrieve.</param>
-        public Message GetMessage(String userId, String messageId, string query)
+        public Message GetMessage(String userId, String messageId)
         {
             try
             {
@@ -134,7 +134,7 @@ namespace SaintSender
         /// <param name="userId">User's email address. The special value "me"
         /// can be used to indicate the authenticated user.</param>
         /// <param name="threadId">ID of Thread to retrieve.</param>
-        public static Google.Apis.Gmail.v1.Data.Thread GetThread(String userId, String threadId, string query)
+        public Google.Apis.Gmail.v1.Data.Thread GetThread(String userId, String threadId, string query)
         {
             try
             {

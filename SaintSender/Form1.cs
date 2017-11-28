@@ -34,20 +34,22 @@ namespace SaintSender
             IList<Google.Apis.Gmail.v1.Data.Label> testLabels = gmmailAPIhandler.GetGmailLabels();
             foreach (var label in testLabels)
             {
-                listBox1.Items.Add(label.Name);
+                LabelsListView.Items.Add(label.Name);
             }    
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             IList<Google.Apis.Gmail.v1.Data.Message> testMails = gmmailAPIhandler.ListMessages();
+            //IList<Google.Apis.Gmail.v1.Data.MessagePartHeader> headers = new List<Google.Apis.Gmail.v1.Data.MessagePartHeader>();
+            List<string> headerNames = new List<string>();
+
             foreach (var message in testMails)
             {
                 string messageID = message.Id;
-                Google.Apis.Gmail.v1.Data.Message currentMessage = gmmailAPIhandler.GetMessage("me", messageID, "full");
-                listBox1.Items.Add(currentMessage.Snippet);
+                Google.Apis.Gmail.v1.Data.Message currentMessage = gmmailAPIhandler.GetMessage("me", messageID);
+                string from = currentMessage.Payload.Headers[0].Value;
             }
         }
-
     }
 }
