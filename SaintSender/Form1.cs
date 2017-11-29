@@ -12,44 +12,72 @@ using Google.Apis.Gmail.v1;
 using Google.Apis.Gmail.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using System.IO;
 
 namespace SaintSender
 {
-    public partial class Form1 : Form
+    public partial class SaintSenderForm : Form
     {
         GmailAPIHandler gmmailAPIhandler = new GmailAPIHandler();
 
-        public Form1()
+        public SaintSenderForm()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            //this.ControlBox = false;
+            //this.Text = String.Empty;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void getLabelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IList<Google.Apis.Gmail.v1.Data.Label> testLabels = gmmailAPIhandler.GetGmailLabels();
             foreach (var label in testLabels)
             {
                 LabelsListView.Items.Add(label.Name);
-            }    
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void MessagesStripMenuItem_Click(object sender, EventArgs e)
         {
             IList<Google.Apis.Gmail.v1.Data.Message> testMails = gmmailAPIhandler.ListMessages();
-            //IList<Google.Apis.Gmail.v1.Data.MessagePartHeader> headers = new List<Google.Apis.Gmail.v1.Data.MessagePartHeader>();
-            List<string> headerNames = new List<string>();
+            IList<Google.Apis.Gmail.v1.Data.MessagePartHeader> headers = new List<Google.Apis.Gmail.v1.Data.MessagePartHeader>();
+            Dictionary<string, string> messageFROM = new Dictionary<string, string>();
+            Dictionary<string, string> messageSUBJECT = new Dictionary<string, string>();
+            Dictionary<string, string> messageDATE = new Dictionary<string, string>();
 
             foreach (var message in testMails)
             {
                 string messageID = message.Id;
                 Google.Apis.Gmail.v1.Data.Message currentMessage = gmmailAPIhandler.GetMessage("me", messageID);
-                string from = currentMessage.Payload.Headers[0].Value;
+                foreach (var header in currentMessage.Payload.Headers)
+                {
+                    if (header.Name == "From") { messageFROM.Add(header.Name, header.Value); }
+                    if (header.Name == "Subject") { messageFROM.Add(header.Name, header.Value); }
+                    if (header.Name == "Date") { messageFROM.Add(header.Name, header.Value); }
+                }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            IList<Google.Apis.Gmail.v1.Data.Message> testMails = gmmailAPIhandler.ListMessages();
+            List<string> messageIDS = new List<string>();
+            string path = @"D:\Codecool\.NET\message_ids.txt";
+            foreach (var message in testMails)
+            {
+                string messageID = message.Id;
+                Google.Apis.Gmail.v1.Data.Message currentMessage = gmmailAPIhandler.GetMessage("me", messageID);
+                messageIDS.Add(messageID);
+            }
+            TextWriter textwriter = new StreamWriter(path);
+            foreach (var id in messageIDS)
+            {
+                textwriter.WriteLine(id);
+            }
+            textwriter.Close();
         }
     }
 }

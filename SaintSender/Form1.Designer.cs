@@ -1,6 +1,6 @@
 ﻿namespace SaintSender
 {
-    partial class Form1
+    partial class SaintSenderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,99 +28,141 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
             this.LabelsListView = new System.Windows.Forms.ListView();
             this.MessagesListView = new System.Windows.Forms.ListView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.MessagesStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MessageViewRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.LabelsEmailsSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.getLabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.TopMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LabelsEmailsSplitContainer)).BeginInit();
+            this.LabelsEmailsSplitContainer.Panel1.SuspendLayout();
+            this.LabelsEmailsSplitContainer.Panel2.SuspendLayout();
+            this.LabelsEmailsSplitContainer.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1084, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "labels";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1284, 75);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "messages";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // TopMenuStrip
-            // 
-            this.TopMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.TopMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.TopMenuStrip.Location = new System.Drawing.Point(118, 13);
-            this.TopMenuStrip.Name = "TopMenuStrip";
-            this.TopMenuStrip.Size = new System.Drawing.Size(202, 24);
-            this.TopMenuStrip.TabIndex = 3;
-            this.TopMenuStrip.Text = "menuStrip1";
             // 
             // LabelsListView
             // 
-            this.LabelsListView.Location = new System.Drawing.Point(12, 27);
+            this.LabelsListView.BackColor = System.Drawing.Color.Honeydew;
+            this.LabelsListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelsListView.Location = new System.Drawing.Point(0, 0);
             this.LabelsListView.Name = "LabelsListView";
-            this.LabelsListView.Size = new System.Drawing.Size(206, 814);
+            this.LabelsListView.Size = new System.Drawing.Size(136, 825);
             this.LabelsListView.TabIndex = 4;
             this.LabelsListView.UseCompatibleStateImageBehavior = false;
             this.LabelsListView.View = System.Windows.Forms.View.Tile;
             // 
             // MessagesListView
             // 
-            this.MessagesListView.Location = new System.Drawing.Point(224, 27);
+            this.MessagesListView.BackColor = System.Drawing.Color.Honeydew;
+            this.MessagesListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MessagesListView.Location = new System.Drawing.Point(0, 0);
             this.MessagesListView.Name = "MessagesListView";
-            this.MessagesListView.Size = new System.Drawing.Size(206, 814);
+            this.MessagesListView.Size = new System.Drawing.Size(268, 825);
             this.MessagesListView.TabIndex = 5;
             this.MessagesListView.UseCompatibleStateImageBehavior = false;
             this.MessagesListView.View = System.Windows.Forms.View.Tile;
             // 
-            // menuStrip1
+            // TopMenuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1482, 28);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
+            this.TopMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.TopMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MessagesStripMenuItem,
+            this.getLabelsToolStripMenuItem});
+            this.TopMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.TopMenuStrip.Name = "TopMenuStrip";
+            this.TopMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TopMenuStrip.Size = new System.Drawing.Size(1482, 28);
+            this.TopMenuStrip.TabIndex = 6;
+            this.TopMenuStrip.Text = "menuStrip1";
             // 
-            // Form1
+            // MessagesStripMenuItem
+            // 
+            this.MessagesStripMenuItem.Name = "MessagesStripMenuItem";
+            this.MessagesStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.MessagesStripMenuItem.Text = "GetMessages";
+            this.MessagesStripMenuItem.Click += new System.EventHandler(this.MessagesStripMenuItem_Click);
+            // 
+            // MessageViewRichTextBox
+            // 
+            this.MessageViewRichTextBox.BackColor = System.Drawing.Color.Honeydew;
+            this.MessageViewRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MessageViewRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MessageViewRichTextBox.Location = new System.Drawing.Point(0, 28);
+            this.MessageViewRichTextBox.Name = "MessageViewRichTextBox";
+            this.MessageViewRichTextBox.Size = new System.Drawing.Size(1482, 825);
+            this.MessageViewRichTextBox.TabIndex = 7;
+            this.MessageViewRichTextBox.Text = "";
+            // 
+            // LabelsEmailsSplitContainer
+            // 
+            this.LabelsEmailsSplitContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LabelsEmailsSplitContainer.Location = new System.Drawing.Point(0, 28);
+            this.LabelsEmailsSplitContainer.Name = "LabelsEmailsSplitContainer";
+            // 
+            // LabelsEmailsSplitContainer.Panel1
+            // 
+            this.LabelsEmailsSplitContainer.Panel1.Controls.Add(this.LabelsListView);
+            // 
+            // LabelsEmailsSplitContainer.Panel2
+            // 
+            this.LabelsEmailsSplitContainer.Panel2.Controls.Add(this.MessagesListView);
+            this.LabelsEmailsSplitContainer.Size = new System.Drawing.Size(408, 825);
+            this.LabelsEmailsSplitContainer.SplitterDistance = 136;
+            this.LabelsEmailsSplitContainer.TabIndex = 8;
+            // 
+            // getLabelsToolStripMenuItem
+            // 
+            this.getLabelsToolStripMenuItem.Name = "getLabelsToolStripMenuItem";
+            this.getLabelsToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.getLabelsToolStripMenuItem.Text = "GetLabels";
+            this.getLabelsToolStripMenuItem.Click += new System.EventHandler(this.getLabelsToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1187, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // SaintSenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(1482, 853);
-            this.Controls.Add(this.MessagesListView);
-            this.Controls.Add(this.LabelsListView);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.LabelsEmailsSplitContainer);
+            this.Controls.Add(this.MessageViewRichTextBox);
             this.Controls.Add(this.TopMenuStrip);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.TopMenuStrip;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "SaintSenderForm";
+            this.Text = "SaintSender";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.TopMenuStrip.ResumeLayout(false);
+            this.TopMenuStrip.PerformLayout();
+            this.LabelsEmailsSplitContainer.Panel1.ResumeLayout(false);
+            this.LabelsEmailsSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LabelsEmailsSplitContainer)).EndInit();
+            this.LabelsEmailsSplitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.MenuStrip TopMenuStrip;
         private System.Windows.Forms.ListView LabelsListView;
         private System.Windows.Forms.ListView MessagesListView;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip TopMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem MessagesStripMenuItem;
+        private System.Windows.Forms.RichTextBox MessageViewRichTextBox;
+        private System.Windows.Forms.SplitContainer LabelsEmailsSplitContainer;
+        private System.Windows.Forms.ToolStripMenuItem getLabelsToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
