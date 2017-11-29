@@ -48,17 +48,49 @@ namespace SaintSender
             Dictionary<string, string> messageSUBJECT = new Dictionary<string, string>();
             Dictionary<string, string> messageDATE = new Dictionary<string, string>();
 
+            IDictionary<string, GMail> extractedMails = CreateGmailMessage(testMails);
+            foreach (KeyValuePair<string, GMail> mail in myDic)
+            {
+
+            }
+
+
+
+            //foreach (var message in testMails)
+            //{
+            //    string messageID = message.Id;
+            //    Google.Apis.Gmail.v1.Data.Message currentMessage = gmmailAPIhandler.GetMessage("me", messageID);
+            //    foreach (var header in currentMessage.Payload.Headers)
+            //    {
+            //        if (header.Name == "From") { messageFROM.Add(header.Name, header.Value); }
+            //        if (header.Name == "Subject") { messageFROM.Add(header.Name, header.Value); }
+            //        if (header.Name == "Date") { messageFROM.Add(header.Name, header.Value); }
+            //    }
+            //    foreach (var item in currentMessage.Payload.Parts)
+            //    {
+            //        if (item.  == "Date") { messageFROM.Add(header.Name, header.Value); }
+            //    }
+            //}
+        }
+
+        private IDictionary<string, GMail> CreateGmailMessage(IList<Google.Apis.Gmail.v1.Data.Message> testMails)
+        {
+            IDictionary<string, GMail> extractedMails = new Dictionary<string, GMail>();
             foreach (var message in testMails)
             {
                 string messageID = message.Id;
                 Google.Apis.Gmail.v1.Data.Message currentMessage = gmmailAPIhandler.GetMessage("me", messageID);
+                extractedMails[messageID] = new GMail();
                 foreach (var header in currentMessage.Payload.Headers)
                 {
-                    if (header.Name == "From") { messageFROM.Add(header.Name, header.Value); }
-                    if (header.Name == "Subject") { messageFROM.Add(header.Name, header.Value); }
-                    if (header.Name == "Date") { messageFROM.Add(header.Name, header.Value); }
+                    if (header.Name == "From") { extractedMails[messageID].From = header.Value; }
+                    if (header.Name == "Subject") { extractedMails[messageID].Subject = header.Value; }
+                    if (header.Name == "Date") { extractedMails[messageID].Date = header.Value; }
+                    if (header.Name == "Snippet") { extractedMails[messageID].Snippet = header.Value; }
+                    if (header.Name == "Body") { extractedMails[messageID].Body = header.Value; }
                 }
             }
+            return extractedMails;
         }
 
         private void button1_Click(object sender, EventArgs e)
