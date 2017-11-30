@@ -43,7 +43,7 @@ namespace SaintSender
                 {
                     if (header.Name == "From") { extractedMails[messageID].From = header.Value; }
                     if (header.Name == "Subject") { extractedMails[messageID].Subject = header.Value; }
-                    if (header.Name == "Date") { extractedMails[messageID].Date = header.Value; }
+                    if (header.Name == "Date") { extractedMails[messageID].Date = header.Value.Remove(header.Value.Length - 14); }
                     if (header.Name == "Snippet") { extractedMails[messageID].Snippet = header.Value; }
 
                     if (extractedMails[messageID].Date != "No date information" && extractedMails[messageID].From != "No send information")

@@ -16,7 +16,7 @@ namespace SaintSender
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SaintSenderForm());
+            Application.Run(new SaintSenderPlus());
         }
     }
 }
