@@ -61,32 +61,12 @@ namespace SaintSender.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] client_secret {
+        internal static System.Drawing.Bitmap moon_sea_1920x1200 {
             get {
-                object obj = ResourceManager.GetObject("client_secret", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] client_secret1 {
-            get {
-                object obj = ResourceManager.GetObject("client_secret1", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] client_secret2 {
-            get {
-                object obj = ResourceManager.GetObject("client_secret2", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("moon_sea_1920x1200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

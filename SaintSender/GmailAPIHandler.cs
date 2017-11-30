@@ -60,14 +60,41 @@ namespace SaintSender
         }
 
 
-        public IList<Google.Apis.Gmail.v1.Data.Label> GetGmailLabels()
-        {
-            // Define parameters of request.
-            UsersResource.LabelsResource.ListRequest request = service.Users.Labels.List(userId);
+        //public IList<Google.Apis.Gmail.v1.Data.Label> GetGmailLabels()
+        //{
+        //    // Define parameters of request.
+        //    UsersResource.LabelsResource.ListRequest request = service.Users.Labels.List(userId);
 
-            // List labels.
-            IList<Label> labels = request.Execute().Labels;
-            return labels;
+        //    // List labels.
+        //    IList<Label> labels = request.Execute().Labels;
+        //    return labels;
+        //}
+
+
+        /// <summary>
+        /// List the labels in the user's mailbox.
+        /// </summary>
+        /// <param name="service">Gmail API service instance.</param>
+        /// <param name="userId">User's email address. The special value "me"
+        /// can be used to indicate the authenticated user.</param>
+        public Dictionary<string, Label> GetLabels(String userId)
+        {
+            Dictionary<string, Label> result = new Dictionary<string, Label>();
+            try
+            {
+                ListLabelsResponse response = service.Users.Labels.List(userId).Execute();
+                foreach (Label label in response.Labels)
+                {
+                    string labelId = label.Id;
+                    result[labelId] = new Label();
+                    result[labelId].Name = label.Name;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: " + e.Message);
+            }
+            return result;
         }
 
 
