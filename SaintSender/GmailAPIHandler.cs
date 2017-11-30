@@ -106,11 +106,12 @@ namespace SaintSender
         /// can be used to indicate the authenticated user.</param>
         /// <param name="query">String used to filter Messages returned.</param>
         /// 
-        public List<Message> ListMessages()
+        public List<Message> ListMessages(string labelId)
         {
             List<Message> result = new List<Message>();
             UsersResource.MessagesResource.ListRequest request = service.Users.Messages.List(userId);
             //request.Q = query;
+            request.LabelIds = labelId;
 
             do
             {
