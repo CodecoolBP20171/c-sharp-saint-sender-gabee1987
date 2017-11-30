@@ -32,10 +32,10 @@
             this.MessagesListView = new System.Windows.Forms.ListView();
             this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
             this.MessagesStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getLabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MessageViewRichTextBox = new System.Windows.Forms.RichTextBox();
             this.LabelsEmailsSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.getLabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.MinimizeButton = new System.Windows.Forms.Button();
             this.TopMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LabelsEmailsSplitContainer)).BeginInit();
             this.LabelsEmailsSplitContainer.Panel1.SuspendLayout();
@@ -85,16 +85,25 @@
             this.MessagesStripMenuItem.Text = "GetMessages";
             this.MessagesStripMenuItem.Click += new System.EventHandler(this.MessagesStripMenuItem_Click);
             // 
+            // getLabelsToolStripMenuItem
+            // 
+            this.getLabelsToolStripMenuItem.Name = "getLabelsToolStripMenuItem";
+            this.getLabelsToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.getLabelsToolStripMenuItem.Text = "GetLabels";
+            this.getLabelsToolStripMenuItem.Click += new System.EventHandler(this.getLabelsToolStripMenuItem_Click);
+            // 
             // MessageViewRichTextBox
             // 
+            this.MessageViewRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MessageViewRichTextBox.BackColor = System.Drawing.Color.Honeydew;
             this.MessageViewRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MessageViewRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MessageViewRichTextBox.Location = new System.Drawing.Point(0, 28);
+            this.MessageViewRichTextBox.Location = new System.Drawing.Point(446, 89);
             this.MessageViewRichTextBox.Name = "MessageViewRichTextBox";
-            this.MessageViewRichTextBox.Size = new System.Drawing.Size(1482, 825);
+            this.MessageViewRichTextBox.Size = new System.Drawing.Size(941, 555);
             this.MessageViewRichTextBox.TabIndex = 7;
             this.MessageViewRichTextBox.Text = "";
+            this.MessageViewRichTextBox.WordWrap = false;
             // 
             // LabelsEmailsSplitContainer
             // 
@@ -113,22 +122,15 @@
             this.LabelsEmailsSplitContainer.SplitterDistance = 136;
             this.LabelsEmailsSplitContainer.TabIndex = 8;
             // 
-            // getLabelsToolStripMenuItem
+            // MinimizeButton
             // 
-            this.getLabelsToolStripMenuItem.Name = "getLabelsToolStripMenuItem";
-            this.getLabelsToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.getLabelsToolStripMenuItem.Text = "GetLabels";
-            this.getLabelsToolStripMenuItem.Click += new System.EventHandler(this.getLabelsToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1187, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.MinimizeButton.Location = new System.Drawing.Point(1187, 0);
+            this.MinimizeButton.Name = "MinimizeButton";
+            this.MinimizeButton.Size = new System.Drawing.Size(35, 30);
+            this.MinimizeButton.TabIndex = 9;
+            this.MinimizeButton.Text = "<<";
+            this.MinimizeButton.UseVisualStyleBackColor = true;
+            this.MinimizeButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // SaintSenderForm
             // 
@@ -136,7 +138,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(1482, 853);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.MinimizeButton);
             this.Controls.Add(this.LabelsEmailsSplitContainer);
             this.Controls.Add(this.MessageViewRichTextBox);
             this.Controls.Add(this.TopMenuStrip);
@@ -162,7 +164,7 @@
         private System.Windows.Forms.RichTextBox MessageViewRichTextBox;
         private System.Windows.Forms.SplitContainer LabelsEmailsSplitContainer;
         private System.Windows.Forms.ToolStripMenuItem getLabelsToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button MinimizeButton;
     }
 }
 

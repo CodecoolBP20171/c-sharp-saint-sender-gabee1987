@@ -54,8 +54,8 @@ namespace SaintSender
                         }
                         else
                         {
-                            extractedMails[messageID].Body = GetMessageBody(currentMessage.Payload.Parts, "");
-                            extractedMails[messageID].HTMLBody = GetMessageHTMLBody(currentMessage.Payload.Parts, "");
+                            extractedMails[messageID].Body = DecodeBase64(GetMessageBody(currentMessage.Payload.Parts, ""));
+                            extractedMails[messageID].HTMLBody = DecodeBase64(GetMessageHTMLBody(currentMessage.Payload.Parts, ""));
                         }
                     }
                 }
@@ -127,42 +127,42 @@ namespace SaintSender
 
         private static string DecodeBase64(string input)
         {
-            var base64 = Convert.FromBase64String(input.Replace("-", "+"));
-            var str = Encoding.UTF8.GetString(base64);
-            return str;
-            //try
-            //{
-            //    string s = input;
-            //    s = s.Replace('-', '+'); // 62nd char of encoding
-            //    s = s.Replace('_', '/'); // 63rd char of encoding
-            //    switch (s.Length % 4) // Pad with trailing '='s
-            //    {
-            //        case 0: break; // No pad chars in this case
-            //        case 2: s += "=="; break; // Two pad chars
-            //        case 3: s += "="; break; // One pad char
-            //        default:
-            //            throw new System.Exception(
-            //     "Illegal base64url string!");
-            //    }
-            //    byte[] bArray = Convert.FromBase64String(s); // Standard base64 decoder
-            //    string decodedOutPut = Encoding.UTF8.GetString(bArray);
-            //    return decodedOutPut;
-            //}
-            //catch (NullReferenceException ne)
-            //{
-            //    Console.WriteLine(ne);
-            //    return input;
-            //}
-            //catch (FormatException fe)
-            //{
-            //    Console.WriteLine(fe);
-            //    return input;
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e);
-            //    return input;
-            //}
+            //var base64 = Convert.FromBase64String(input.Replace("-", "+"));
+            //var str = Encoding.UTF8.GetString(base64);
+            //return str;
+            try
+            {
+                string s = input;
+                s = s.Replace('-', '+'); // 62nd char of encoding
+                s = s.Replace('_', '/'); // 63rd char of encoding
+                switch (s.Length % 4) // Pad with trailing '='s
+                {
+                    case 0: break; // No pad chars in this case
+                    case 2: s += "=="; break; // Two pad chars
+                    case 3: s += "="; break; // One pad char
+                    default:
+                        throw new System.Exception(
+                 "Illegal base64url string!");
+                }
+                byte[] bArray = Convert.FromBase64String(s); // Standard base64 decoder
+                string decodedOutPut = Encoding.UTF8.GetString(bArray);
+                return decodedOutPut;
+            }
+            catch (NullReferenceException ne)
+            {
+                Console.WriteLine(ne);
+                return input;
+            }
+            catch (FormatException fe)
+            {
+                Console.WriteLine(fe);
+                return input;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return input;
+            }
         }
     }
 }
